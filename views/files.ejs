@@ -1,0 +1,35 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title><%= dir%></title>
+</head>
+<script>
+    fs = require("fs");
+</script>
+<body>
+    <div class="container">
+        <a href=".." class="btn btn-danger align-middle"> back</a>
+    </div>
+    <div class="container">
+        <h4>Directories:</h4>
+        <% for(var i = 0; i < dirs.length; i++) { %> 
+            <a href="<%= dir + dirs[i]%>" class="btn btn-dark align-middle"> <%= dirs[i] %></a>
+        <% } %>  
+    </div>
+        <div class="container"><h4>Files:</h4></div>
+    <div class="container">
+        <% for(var i = 0; i < files.length; i++) { %> 
+            <% if(files[i].slice(-4) == ".jpg") { %>
+                    <a href="<%= dir + files[i]%>">
+                        <img src="<%= dir + files[i]%>" alt="<%= files[i]%>" class="img-thumbnail align-middle" style="width: 100px; height: 100px;">
+                        
+                    </a>
+                <% } %>  
+                <% if(files[i].slice(-4) != ".jpg") { %>
+                    <a href="<%= dir + files[i]%>" class="img-thumbnail btn-warning align-middle" style="width: 100px; height: 100px;">
+                    <%= files[i]%>
+                <% } %>  
+            </a> 
+            
+        <% } %>  
+    </div>
+</body>
