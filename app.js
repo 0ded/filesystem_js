@@ -1,6 +1,5 @@
 var express = require("express");
 var vh = require("./view_handler");
-var fs = require("fs");
 var app = express();
 var port = 420
 var share_folder = "./share/"
